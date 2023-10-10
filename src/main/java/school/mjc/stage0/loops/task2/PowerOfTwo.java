@@ -1,6 +1,11 @@
 package school.mjc.stage0.loops.task2;
 
 public class PowerOfTwo {
+
+    public static void main(String[] args) {
+        PowerOfTwo p = new PowerOfTwo();
+        p.printPower(4);
+    }
     public void printPower(int power) {
         if (power < 0) {
             System.out.println("too much power");
@@ -8,13 +13,27 @@ public class PowerOfTwo {
 
         int i = 0;
 
-        while (i <= power) {
-            int j = 1;
-            while (i >= 1) {
-                j *= 2;
-            }
-            System.out.println(j);
+        while (power >= i) {
+            System.out.println(getPowerOfTwo(i));
+            i++;
+        }
+    }
+
+    private long getPowerOfTwo(int power) {
+        if (power == 0) {
+            return 1;
+        }
+        if (power == 1) {
+            return 2;
         }
 
+        long result = 2;
+
+        while (power > 1) {
+            result *= 2;
+            power--;
+        }
+
+        return result;
     }
 }
